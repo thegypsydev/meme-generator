@@ -81,7 +81,6 @@ fun MemeGeneratorApp() {
 
     val defaultText = stringResource(id = R.string.default_placeholder_text)
     var text by remember { mutableStateOf("") }
-    var imageBitmap by remember { mutableStateOf<Bitmap?>(null) }
     val originalBitmap = remember { mutableStateOf<Bitmap?>(null) }
 
     var fontSize by remember { mutableStateOf(24f) }
@@ -95,7 +94,7 @@ fun MemeGeneratorApp() {
 
     val pickImageLauncher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null) {
-            imageUri = uri // ✅ Fix: set this for image display
+            imageUri = uri
             coroutineScope.launch {
                 originalBitmap.value = loadBitmapFromUri(context, uri)
             }
@@ -202,11 +201,11 @@ fun MemeGeneratorApp() {
                     Box {
                         if (text.isEmpty()) {
                             Text(
-                                text = defaultText, // <- your hint here
+                                text = defaultText,
                                 style = TextStyle(color = Color.Gray)
                             )
                         }
-                        innerTextField() // The actual input field
+                        innerTextField()
                     }
                 }
             )
@@ -248,7 +247,7 @@ fun MemeGeneratorApp() {
                     if (bitmap != null) {
                         val capturedBitmap = captureMemeBitmapSuspend(
                             context = context,
-                            bitmap = bitmap, // ✅ Unwrapped from state
+                            bitmap = bitmap,
                             text = text,
                             fontSize = fontSize,
                             textColor = textColor,
