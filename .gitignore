@@ -1,0 +1,47 @@
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Signing files
+*.jks
+*.keystore
+
+# Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/gradle.xml
+.idea/.name
+
+# Mac
+.DS_Store
+
+
+# Jetpack Compose specific (in case of preview cache)
+**/build/intermediates/compose-*
+**/build/tmp/compose-*
+
+# Kotlin
+*.kotlin_module
+
+# Log files
+*.log
+
+# Others
+captures/
+output.json
+
+# Crashlytics
+crashlytics-build.properties
+

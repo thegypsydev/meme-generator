@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Meme Generator</string>
+    <string name="default_placeholder_text">Your fun caption goes here</string>
+    <string name="caption_hint">Type here to change text</string>
+</resources>
